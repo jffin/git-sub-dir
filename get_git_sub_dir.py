@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
     new_dir_name = path[-1]
     if os.path.exists(new_dir_name):
-        raise 'Directory', new_dir_name, 'already exists'
+        raise NameError(f'Directory {new_dir_name} already exists')
 
     # use contents api
     path.append("contents")
