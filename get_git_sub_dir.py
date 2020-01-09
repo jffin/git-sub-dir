@@ -26,13 +26,13 @@ def write_file(item, dir_name, private=False):
     res = read_url(item['url'], private)
     coded_string = json.loads(res)['content']
     contents = base64.b64decode(coded_string)
-    print os.path.join(dir_name, name)
+    print(os.path.join(dir_name, name))
     with open(os.path.join(dir_name, name), 'w') as f:
         f.write(contents)
 
 
 def write_files(url, dir_name, recursive=True, private=False):
-    print 'url', url
+    print('url', url)
     os.makedirs(dir_name)
 
     github_dir = json.loads(read_url(url, private))
