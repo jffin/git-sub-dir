@@ -26,13 +26,13 @@ def write_file(item, dir_name, private=False):
     res = read_url(item['url'], private)
     coded_string = json.loads(res)['content']
     contents = base64.b64decode(coded_string)
-    print(os.path.join(dir_name, name))
+    print os.path.join(dir_name, name)
     with open(os.path.join(dir_name, name), 'w') as f:
         f.write(contents)
 
 
 def write_files(url, dir_name, recursive=True, private=False):
-    print('url', url)
+    print 'url', url
     os.makedirs(dir_name)
 
     github_dir = json.loads(read_url(url, private))
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
     new_dir_name = path[-1]
     if os.path.exists(new_dir_name):
-        raise NameError(f'Directory {new_dir_name} already exists')
+        raise 'Directory', new_dir_name, 'already exists'
 
     # use contents api
     path.append("contents")
