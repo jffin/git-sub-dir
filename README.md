@@ -1,5 +1,11 @@
 Downloads git sub dir
 
+## sh Usage
+
+    install jq
+    chmod +x git_forder_downloader.sh
+    ./git_folder_downloader.sh [[ github folder link ]] [[ destination folder ]]
+
 ## Usage
     python get_git_sub_dir.py user/repo <options>
     python get_git_sub_dir.py user/private_repo --private <options>
