@@ -1,6 +1,6 @@
 Downloads git sub dir
 
-## sh Usage
+## sh script usage
 
     install jq
     chmod +x git_forder_downloader.sh
