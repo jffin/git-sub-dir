@@ -1,3 +1,6 @@
+# usage
+# ./git_folder_downloader.sh [[ https://api.github.com/repos/:owner/:repo/contents/:path ]] [[ destination folder ]]
+
 null_url="null"
 download_directory="$2"
 
