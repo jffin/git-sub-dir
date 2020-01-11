@@ -1,11 +1,12 @@
 # usage
-# ./git_folder_downloader.sh [[ https://api.github.com/repos/:owner/:repo/contents/:path ]] [[ destination folder ]]
+# ./git_folder_downloader.sh [[ https://api.github.com/repos/:owner/:repo/contents/:path ]] [[ destination folder ]] [[ directory to remove while following path ]]
 
 null_url="null"
 directory="$2"
+follow_structure="$3"
 
 download_file() {
-        curl -o ${3}/${1} ${2}
+        curl -o ${3}${4}/${1} ${2}
 }
 
 loop_json() {
@@ -16,13 +17,19 @@ loop_json() {
 
                 url=$(_jq '.url')
                 file_name=$(_jq '.name')
+                path=""
                 download_url=$(_jq '.download_url')
+                
+                if [ -z ${follow_structure} ]; then
+                        path=$(_q '.path')
+                        path=${path/${follow_structure}/}
+                fi
 
                 if [ ${download_url} = ${null_url} ]; then
                         folder_json=$(curl -L ${url})
                         loop_json ${forlder_json}
                 else
-                        download_file ${file_name} ${download_url} ${directory}
+                        download_file ${file_name} ${download_url} ${directory} ${path}
                 fi
         done
 }
