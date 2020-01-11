@@ -4,7 +4,7 @@ Downloads git sub dir
 
     install jq
     chmod +x git_forder_downloader.sh
-    ./git_folder_downloader.sh [[ https://api.github.com/repos/:owner/:repo/contents/:path ]] [[ destination folder ]]
+    ./git_folder_downloader.sh [[ https://api.github.com/repos/:owner/:repo/contents/:path ]] [[ destination folder ]] [[ destination folder ]] [[ directory to remove while following path ]]
 
 ## Usage
     python get_git_sub_dir.py user/repo <options>
