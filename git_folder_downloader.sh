@@ -33,7 +33,7 @@ loop_json() {
 
                 if [ ${download_url} = ${null_url} ]; then
                         printf ${url}
-                        folder_json=$(curl -L ${url})
+                        folder_json=$(curl -s -L ${url})
                         loop_json "${folder_json}"
                 else
                         download_file ${file_name} ${download_url} ${directory} ${path}
