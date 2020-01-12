@@ -8,6 +8,7 @@ directory="$2"
 follow_structure="$3"
 
 download_file() {
+        printf ${3}${4}${1}"\n"
         mkdir -p ${3}${4}
         curl -s -o ${3}${4}${1} ${2}
 }
