@@ -25,6 +25,7 @@ loop_json() {
                 download_url=$(_jq '.download_url')
                 
                 if [[ ! -z ${follow_structure} ]]; then
+                        printf "if passed"
                         path=$(_jq '.path')
                         path=${path//${follow_structure}/}
                         path=${path//${file_name}/}
