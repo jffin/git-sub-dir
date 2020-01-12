@@ -1,3 +1,5 @@
+#!/bin/sh
+  
 # usage
 # ./git_folder_downloader.sh [[ https://api.github.com/repos/:owner/:repo/contents/:path ]] [[ destination folder ]] [[ directory to remove while following path ]]
 
@@ -6,6 +8,7 @@ directory="$2"
 follow_structure="$3"
 
 download_file() {
+        mkdir -p ${3}${4}
         curl -s -o ${3}${4}${1} ${2}
 }
 
@@ -19,7 +22,7 @@ loop_json() {
                 file_name=$(_jq '.name')
                 path="/"
                 download_url=$(_jq '.download_url')
-                
+
                 if [[ ! -z ${follow_structure} ]]; then
                         path=$(_jq '.path')
                         path=${path//${follow_structure}/}
